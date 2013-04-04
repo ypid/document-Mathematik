@@ -1,0 +1,94 @@
+%% <Schule/Epochenheft.tex> Vorlageversion 1.1.1 <Robin Schneider>
+%%%Präambel
+%\RequirePackage{snapshot}		%% \jobname.dep
+%\listfiles	%% listfiles in die Logdatei
+\RequirePackage{RequirePackageRS}
+\documentclass[12pt,a4paper,ngerman,numbers=noenddot,toc=listof]{scrartcl}	%% ,draft,pointednumbers,
+\usepackage[nohyperlinks,printonlyused]{acronym}
+\usepackage{
+	physicsRS,
+	scrartclRS,
+	defaultRS,
+%	literatureRS,
+%	debugRS,
+	timeRS,
+	graphicRS,
+	mathematicsRS,
+%	gamesRS,
+	layoutRS,
+	footingRS,
+	extensionsRS,
+	docExtensionsRS,
+	schoolRS,
+%	chemistryRS,
+}
+%% Spetzifische angaben
+\input{files/metainfos}
+
+\usepackage{
+	schoolPDFinfoRS,
+	tableRS,
+}
+%\SetDraft{on}
+\readgitstat{7}
+\ifoot[]{$\log_2 \PotenzValue{2}{\value{page}}
+\ifthenelse{10000 < \the\temp}{\numprint{\the\temp}}{\the\temp} = \thepage$}
+  \cfoot{}
+\ifDraft{
+  \usepackage[draft,nomargin,inline]{fixme}
+%  \usepackage[draft]{showkeys}
+  }{\usepackage{fixme}}
+\fxusetheme{colorsig}\renewcommand{\germanlistfixmename}{Verzeichnis der Anmerkungen}
+\renewcommand{\ABGABEDATUMstatname}{Druckdatum}
+%%%Body
+\begin{document}
+\pdfbookmark[1]{Titelseite}{titelseite}\pagenumbering{Roman}\thispagestyle{empty}
+\includepdf[pages={1}]{files/titlepage/sinus}
+\pdfbookmark[1]{\contentsname}{inhaltsverzeichnis}
+\tableofcontents	%% Inhaltsverzeichnis
+%\listoffigures		%% Abbildungsverzeichnis
+%\listoftables		%% Tabellenverzeichnis
+%\lstlistoflistings	%% Quellcodeverzeichnis
+%\input{/home/rsadmin/Dokumente/LaTeX/Abkuerzungen/Chemie}
+
+\setcounter{headpages}{\value{page}}\newpage\pagenumbering{arabic}
+%%%%%%%%%%%
+\input{files/chapters/Differenzialrechnung}
+
+\input{files/chapters/GanzrationaleFunktionen}
+
+%\setcounter{sectionsV}{\value{chapter}}
+\setcounter{sectionsV}{\value{section}}     %% Speichert die sectionnummer vor \appendix zwischen
+\appendix   %% Sorgt für Buchstaben im Inhaltsverzeichnis
+
+\newpage
+\printURLlong
+\printlicense
+\printendsignature
+
+\newpage\Statistiken
+Status:~\progressbar{.98} (eigenes Ermessen)\\
+%}{}
+%\ifDraft{
+  \begin{landscape}
+	\pagestyle{empty}
+	\begin{sourcefiletable}{1}
+		\sourcefile{Hauptdatei}{\jobname.tex}
+		\sourcefile{Metainformationen}{files/metainfos.tex}
+		\sourcefile{Titelseite (Sinus.tex)}{files/titlepage/sinus.tex}
+		\sourcefile{Titelseite (Sinus.pdf)}{files/titlepage/sinus.pdf}
+		\sourcefile{Kapitel: Differenzialrechnung}{files/chapters/Differenzialrechnung.tex}
+		\sourcefile{Kapitel: Ganzrationale Funktionen}{files/chapters/GanzrationaleFunktionen.tex}
+	\end{sourcefiletable}
+	\pdfbookmark[2]{Versionshinweise}{versionshinweise}
+	\subsection*{Versionshinweise}
+	\input{files/git/versions-log}
+	\printgitstatlandscape{1}
+  \end{landscape}
+	\printgitstat{1}
+	\subsubsection*{Dateien?}
+	\pdfbookmark[3]{Dateien?}{files_by_date}
+	\includegraphics[width=14cm]{files/git/stats/files_by_date-crop}
+	\listoffixmes
+%}{}
+\end{document}

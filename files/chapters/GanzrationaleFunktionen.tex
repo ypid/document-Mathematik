@@ -1,0 +1,438 @@
+%\fxwarning{Koordinatensystem fehlt}
+%\chapter{Ganzrationale Funktionen}
+\section{Ganzrationale Funktionen}
+Eine ganzrationale Funktion ist eine Funktion, die dem allgemeine Typ: $f(x)=a_nx^n+a_{n-1}x^{n-1}+ \dots + a_1x+a_0$
+(Polynom) entspricht, oder in diesen überführt werden kann.
+
+$f(x) = 4x^2+7x+1$\\
+$f(x) = 23x^5+42x^4+128$
+
+\subsection{Einteilung und Symmetrie}
+\begin{description}
+    \item[gerade:] $f(x)=-3x^6+2x^2+1(x^0)$\\
+    \begin{minipage}{5cm}
+    \begin{mathplot}{2}{-2}{3}{-1}{1}{$x$}{$y$}%-3x**8+2x**2+1
+    %\draw[samples=700, color=black, domain=-1.044:1.044] plot[id=ganzr-achsym-y] function{-3*x**8+2*x**2+1};
+    \draw[color=black] plot file {files/gnuplot-tables/Differenzialrechnung.ganzr-achsym-y.table};
+    \draw[color=green] (-0.70048,0) -- node[color=black,sloped,above] {$f(-x)$} (-0.70048,1.80745);
+    \draw[color=green] (0.70048,0) -- node[color=black,sloped,below] {$f(x)$} (0.70048,1.80745);
+    \end{mathplot}
+    \end{minipage}
+    \hfill
+    \begin{minipage}{8.5cm}
+    Achsen symmetrisch zur y-Achse
+    \bigskip
+
+    Musteraufgaben:\\
+    $f(x) = x^4-2x^2+2$\\
+    $f(x) = f(-x)\quad$ muss gelten!\\
+    $f(-x)= (-x)^4-2(-x)^2+2 =$\\$x^4-2x^2+2=f(x)$\\
+    \textcolor{green}{$f(x)=f(-x)$}
+    \end{minipage}
+    \item[ungerade:] $f(x)=-x^5+2x^3+\frac{1}{2}x^{(1)}$\\
+    \begin{minipage}{5cm}
+    \begin{mathplot}{2}{-2}{5}{-5}{1}{$x$}{$y$}%-3x**8+2x**2+1
+    %\draw[samples=700, color=black, domain=-1.756:1.756] plot[id=ganzr-punktsym-y] function{-x**5+2*x**3+0.5*x};
+    \draw[color=black] plot file {files/gnuplot-tables/Differenzialrechnung.ganzr-punktsym-y.table};
+    \draw[color=green] (-1.19312,-1.57566) -- node[color=black,sloped,above] {$f(-x)$} (-1.19312,0);
+    \draw[color=green] (1.19312,0) -- node[color=black,sloped,below] {$f(x)$} (1.19312,1.57566);
+    \end{mathplot}
+    \end{minipage}
+    \hfill
+    \begin{minipage}{8.5cm}
+    Punktsymmetrisch zum Ursprung\\
+    \textcolor{green}{$-f(x)=f(-x)$}
+    \bigskip
+
+    Musteraufgaben:\\
+    $f(x)=x^5-4x^3$\\
+    $-f(x)=f(-x)\quad$ muss gelten!\\
+    $f(-x)=(-x)^5-4(-x)^3=-x^3+4x^3$\\
+    $-f(x)=-(x^3-4x^3)=-x^5+x^3=f(-x)$\\
+    \fxnote{Im Koordinatensystem kein $-f(-x)$?}
+    \end{minipage}
+    \item[weder gerade- noch ungerade:] $f(x)=x^3+2x^2+x^{(1)}+1(x^0)$\\
+    \begin{minipage}{5cm}
+    \begin{mathplot}{1}{-3}{3}{-3}{1}{$x$}{$y$}%-3x**8+2x**2+1
+    %\draw[samples=700, color=black, domain=-2.315:0.697] plot[id=ganzr-nichtsym-y] function{x**3+2*x**2+x+1};
+    \draw[color=black] plot file {files/gnuplot-tables/Differenzialrechnung.ganzr-nichtsym-y.table};
+    \end{mathplot}
+    \end{minipage}
+    \hfill
+    \begin{minipage}{8.5cm}
+    \vspace*{0.4cm}
+    Nicht Punktsymmetrisch zum Ursprung und keine Achsensymmetrie zur y-Achse.
+    \bigskip
+
+    Musteraufgaben:\\
+    $f(x)=x^3-4x+4$\\
+    $f(-x)=(-x)^3-4(-x)+4=-x^3+4x+4$\\
+    $\rightarrow\quad\quad$ Nicht Achsen symmetrisch zur y-Achse.\\
+    $-f(x)=-(x^3-4x+4)=-x^3+4x-4$\\
+    $\rightarrow\quad\quad$ Nicht Punktsymmetrisch zu O$(0|0)$.\\
+    \end{minipage}
+\end{description}
+
+\newpage
+\subsection{Erstellen von Grobskizzen}
+$f(x)=\textcolor{red}{x^4}\textcolor{blue}{-x^2+2}$
+
+\begin{minipage}{5cm}
+\begin{mathplot}{3}{-3}{5}{-5}{1}{$x$}{$y$}%
+%\draw[samples=700, color=black, domain=-1.517:1.517] plot[id=ganzr-grobskizzefull] function{x**4-x**2+2};
+\draw[color=black] plot file {files/gnuplot-tables/Differenzialrechnung.ganzr-grobskizzefull.table};
+%\draw[samples=700, color=black, domain=-2.642:2.642] plot[id=ganzr-grobskizze_l] function{-x**2+2};
+\draw[color=blue] plot file {files/gnuplot-tables/Differenzialrechnung.ganzr-grobskizze_l.table};
+%\draw[samples=700, color=black, domain=-1.495:1.495] plot[id=ganzr-grobskizze_r] function{x**4};
+\draw[color=red] plot file {files/gnuplot-tables/Differenzialrechnung.ganzr-grobskizze_r.table};
+\end{mathplot}
+\end{minipage}
+\hfill
+\begin{minipage}{7.5cm}
+Hochpunkt H(0|2)\\
+%Tiefpunkte T$_{1|2}$($\pm$0,7|1,75)\\
+Wendepunkt M(0|2)\\
+$f(0)=0^4-0^2+2=2$
+\end{minipage}
+
+Das Verhalten einer Ganzrationalen Funktionen wird in der Umgebung des Punktes M (y-Achse) näherungsweise durch die
+niedrigste Potenz von $x$ und dem Summanden ohne $x$ bestimmt.
+
+Das Verhalten einer Ganzrationalen Funktionen wird wenn $x \rightarrow \pm \infty$ geht näherungsweise durch das Verhalten
+des Gliedes mit der höchsten Potenz von $x$ bestimmt.
+
+\bigskip
+\begin{minipage}{5cm}
+\begin{mathplot}{3}{-3}{5}{-1}{1}{$x$}{$y$}
+%\draw[samples=700, color=black, domain=-2.58:2.58] plot[id=ganzr-wendepunkte] function{-0.25*x**3+0.5*x+2};
+\draw[color=black] plot file {files/gnuplot-tables/Differenzialrechnung.ganzr-wendepunkte.table};
+\draw[color=red] (-0.8,1.45) node {T};
+\draw[color=cyan] (0.816,2.55) node {H};
+\end{mathplot}
+\end{minipage}
+\hfill
+\begin{minipage}{7.5cm}
+1 T (Tiefpunkt)\\
+1 H (Hochpunkt)\\
+1 W (Wendepunkt)\\
+1 N (Nullpunkt; eventuell ein bis zwei weitere)
+\end{minipage}
+
+
+\subsection{Nullstellenberechnung}
+\subsubsection{Vorüberlegung}
+Eine Ganzrationale Funktionen $n$ten-Grades hat höchstens $n$ Nullstellen, da eine Gleichung $n$ten-Grades höchstens $n$
+Lösungen hat.
+
+\subsubsection{Nullstellenberechnung einer Funktion 3. Grades}
+$f(x)=x^3+3x^2+2x\quad[a_3x^3+a_2x^2+a_1x]$\\
+$0=x^3+3x^3+2x\quad$ Ausklammern!\\
+$0=x(x^2+3x+2)$\\
+$x_1=0\quad\rightarrow$ N$_1(0|0)$\\
+$0=x^2+3x+2$\\
+$x_{2|3}=-\frac{3}{2}\pm \sqrt{(\frac{3}{2})^2-2}$\\
+$x_{2|3}=-\frac{3}{2}\pm \sqrt{\frac{1}{4}}$\\
+$x_{2|3}=-\frac{3}{2}\pm \frac{1}{2}$\\
+$x_2=-1\quad\rightarrow$ N$_2(-1|0)$\\
+$x_3=-2\quad\rightarrow$ N$_3(-2|0)$\\
+
+\subsubsection{Nullstellenberechnung einer Funktion 4. Grades}
+$f(x)=x^4-4x^2-12\quad [f(x)=a_4x^4+a_2x^2+a_0]$\\
+$0=x^4-4x^2-12$\\
+Substitution\\
+$x^2=z$\\
+$0=z^2-4z-12$\\
+$z_{1|2}=2\pm \sqrt{4+12}$\\
+$z_{1|2}=2\pm 4$\\
+$z_1=6;\quad z_2=-2$\\
+Resubstitution\\
+\begin{multicols}{2}
+$x^2=6$\\
+$x_{1|2}=\sqrt{6}$\\
+$x^2=-2$\\
+\textdiscount
+\end{multicols}
+%%Teil Fehlt
+
+\subsection{Berechnung von Extrempunkten}
+\subsubsection{Vorüberlegung}
+{
+
+\centering
+\begin{tikzpicture}[scale=0.9]
+    \FPset\fxmax{6}
+    \FPset\fxmin{-6}
+    \FPset\fymax{4}
+    \FPset\fymin{-4}
+%% Berechnung
+    \FPadd\xmax\fxmax\gitter
+    \FPadd\ymax\fymax\gitter
+    \FPsub\xmin\fxmin\gitter
+    \FPsub\ymin\fymin\gitter
+%% Gitter
+ %   \draw[very thin,color=gray] (\FPprint\xmin,\FPprint\ymin) grid (\FPprint\xmax,\FPprint\ymax);
+%% Achsen
+    \draw[->] (\xmin,0) -- (\xmax,0) node[right] {$x$};
+    \draw[->] (0,\ymin) -- (0,\ymax) node[above] {$y$};
+    %\draw[samples=700, color=black, domain=-5.52:5.52] plot[id=ganzr-extrempunkte] function{cos(x) * x};
+    \draw[color=black] plot file {files/gnuplot-tables/Differenzialrechnung.ganzr-extrempunkte.table};
+    \draw (-5.1,-3.8) node[color=red] {T$_1$};
+    \draw (-0.93974,-0.85) node[color=red] {~T$_2$};
+    \draw (-3.41940,3.55) node[color=cyan] {H$_1$};
+    \draw (-2.31940,3.55) node {$f(x_{H_1})$};
+    \draw (0.93974,0.8) node[color=cyan] {H$_2$};
+    \draw (2.03974,0.8) node {$f(x_{H_2})$};
+    \draw (3.41940,-3.55) node[color=red] {~T$_3$};
+    \draw (5.1,3.8) node[color=cyan] {H$_3$};
+    \draw (4,3.8) node {$f(x_{H_3})$};
+\end{tikzpicture}\stepcounter{mathplotcount}
+
+}
+E$(x_E|y_E)$\\
+$x_E=$ Extremstelle\\
+$y_E=$ Extremwert\\
+$f(x_{H_3})$ ist ein Globales (absolutes) Maximum.
+$f(x_{H_1})$ und $f(x_{H_2})$ sind lokale (relative) Maxima.
+Analog gilt dies auch für die Minima.
+
+\subsubsection{Berechnung von Extremstellen}
+
+\begin{minipage}{12cm}
+\begin{mathplot}{4}{0}{4}{0}{1}{$x$}{$y$}
+%\draw[samples=700, color=black, domain=0.27:3.726] plot[id=ganzr-extrem-H] function{-(x-2)**2+3};
+\draw[color=black] plot file {files/gnuplot-tables/Differenzialrechnung.ganzr-extrem-H.table};
+\draw[color=cyan] (0.5,3) -- node[above] {H} (3.5,3) node[right] {t};
+\draw[color=blue] (3,3.5) node {$m_t=0$};
+\end{mathplot}
+\begin{mathplot}{4}{0}{4}{0}{1}{$x$}{$y$}
+%\draw[samples=700, color=black, domain=0.2695:3.728] plot[id=ganzr-extrem-T] function{(x-2)**2+1};
+\draw[color=black] plot file {files/gnuplot-tables/Differenzialrechnung.ganzr-extrem-T.table};
+\draw[color=red] (0.5,1) -- node[below] {T} (3.5,1) node[right] {t};
+\draw[color=blue] (3,0.5) node {$m_t=0$};
+\end{mathplot}
+\end{minipage}
+\hfill
+\begin{minipage}{5cm}
+$f(x)=\textcolor{blue}{0}\cdot x+c$ \\
+$f'(x)=m_t$
+\end{minipage}
+
+Die erste Ableitung ist eine Formel,
+mit deren Hilfe die Steigung einer Tangente in einem Kurvenpunkt berechnet werden kann.
+Im Hoch- bzw. Tiefpunkt ist diese Tangentensteigung Null.
+
+\textbf{Notwendige Bedingung}
+
+$f'(x)=0\quad\rightarrow x_0$
+
+\begin{minipage}{5cm}
+\begin{mathplot}{5}{0}{5}{0}{1}{$x$}{$y$}
+%\draw[samples=700, color=black, domain=0.7418:3.4407] plot[id=ganzr-sattelpunkt] function{(x-2)**3+2};
+\draw[color=black] plot file {files/gnuplot-tables/Differenzialrechnung.ganzr-sattelpunkt.table};
+\draw[color=blue] (0.5,2) -- (3.5,2) node[right] {$t_w$};
+\draw[color=cyan] (4,2.8) node {$m_w=0$};
+\end{mathplot}
+\end{minipage}
+\hfill
+\begin{minipage}{7.5cm}
+Sattelpunkt, Terassenpunkt $(2|2)$\\
+\end{minipage}
+
+
+\textbf{Hinreichende Bedingung}
+
+$f''(x_0)>0\quad\rightarrow$ T\\
+$f''(x_0)<0\quad\rightarrow$ H\\
+$f''(x_0)=0\quad\rightarrow$ \textdiscount
+
+\textbf{Konkretes Beispiel}
+
+$f(x)=x^3-3x$
+
+\begin{multicols}{2}
+\begin{enumerate}
+    \item Grobskizze\\
+    \begin{tikzpicture}[scale=1]
+    \FPset\fxmax{3}
+    \FPset\fxmin{-3}
+    \FPset\fymax{4}
+    \FPset\fymin{-4}
+    %% Berechnung
+    \FPadd\xmax\fxmax\gitter
+    \FPadd\ymax\fymax\gitter
+    \FPsub\xmin\fxmin\gitter
+    \FPsub\ymin\fymin\gitter
+    %%
+    \draw[->] (\xmin,0) -- (\xmax,0) node[right] {$x$};
+    \draw[->] (0,\ymin) -- (0,\ymax) node[above] {$y$};
+    %\draw[samples=700, color=black, domain=-2.2:2.2] plot[id=ganzr-k-bsp-grob] function{x**3-3*x};
+    \draw[color=black] plot file {files/gnuplot-tables/Differenzialrechnung.ganzr-k-bsp-grob.table};
+    \draw[color=cyan] (-0.96,2.24) node {H$_1$};
+    \draw[color=cyan] (2.2,3.8) node[right] {H$_2$};
+    \draw[color=red] (-2.2,-3.8) node[right] {T$_1$};
+    \draw[color=red] (1.1,-2.3) node {T$_2$};
+    \end{tikzpicture}\stepcounter{mathplotcount}
+    \item Notwendige Bedingung:\\
+    $f'(x)=3x^2-3$\\
+    $3x^2-3=0$\\
+    $3x^2=3$\\
+    $x^2=1$\\
+    $x_{E_{1|2}}=\pm 1$
+    \item Hinreichende Bedingung:\\
+    $f''(x)=6x$\\
+    $f''(1)=6\cdot 1 = 6 > 0 \rightarrow$ T\\
+    $f''(1)=6\cdot (-1) = -6 < 0 \rightarrow$ H\\
+    \item $y_H$ und $y_T$: $f(1)=1^3-3\cdot 1=-2$\\
+    $f(-1)=(-1)^3-3\cdot (-1)=2$
+    \item T$(1|-2);\quad$ H$(-1|2)$
+\end{enumerate}
+\end{multicols}
+
+\fxwarning{Koordinatensystem fehlt}
+
+Entstehen durch ein Zeichenintervall Hoch- und Tiefpunkte, dann nennt man sie Randminimum bzw. Randmaximum.
+Diese lassen sich nicht über die Differenzialrechnung finden.
+
+\subsection{Wendepunkte}
+\subsubsection{Vorüberlegung}
+
+%\fxwarning{2 Koordinatensysteme fehlen}
+\begin{mathplot}{3}{-3}{5}{-1}{1}{$x$}{$y$}
+%\draw[samples=700, color=black, domain=-0.74189:2.287] plot[id=ganzr-wende-vor1] function{-4*x**2+2*x**3+2};
+%\draw[samples=700, color=red, domain=-0.902:1.3459] plot[id=ganzr-wende-vor1-t] function{-2.666*x+2.5925};
+\draw[color=black] plot file {files/gnuplot-tables/Differenzialrechnung.ganzr-wende-vor1.table};
+\draw[color=red] plot file {files/gnuplot-tables/Differenzialrechnung.ganzr-wende-vor1-t.table};
+\end{mathplot}
+
+Die Tangensteigung ist im Wendepunkt am größten, bzw. am kleinsten.
+Sollten Wendepunkte berechnet werden geht man in drei Schritten vor.
+
+\begin{enumerate}
+    \item Notwendige Bedingung für Wendepunkte:\\
+    $f''(x)$ gleich Null setzen, die Lösung der Gleichung liefert mögliche Wendestellen ($x_w$).
+    \item Hinreichende Bedingung:\\
+    $f''(x_w)\quad $($x_w=$ mögliche Wendestelle) muss ungleich Null sein $f'''(x_w)\neq 0$ dann existiert ein Wendepunkt.
+    Ist $f'''(x_w)= 0$ orientieren wir uns in Klasse \KLASSE ~an der Grobskizze.
+    \item Berechnung von $y_w$:\\
+    Die y-Koordinaten erhält man über die Berechnung von $f(x_w)$.
+\end{enumerate}
+
+\newpage      %% Optischer Verschönerung
+\subsubsection{Beispiel}
+$f(x)=3x^5-5x^4$
+
+\begin{multicols}{2}
+\begin{enumerate}
+    \item Grobskizze\\
+    \begin{tikzpicture}[scale=1]
+    \FPset\fxmax{3}
+    \FPset\fxmin{-2}
+    \FPset\fymax{5}
+    \FPset\fymin{-5}
+%% Berechnung
+    \FPadd\xmax\fxmax\gitter
+    \FPadd\ymax\fymax\gitter
+    \FPsub\xmin\fxmin\gitter
+    \FPsub\ymin\fymin\gitter
+    %% Achsen
+    \draw[->] (\xmin,0) -- (\xmax,0) node[right] {$x$};
+    \draw[->] (0,\ymin) -- (0,\ymax) node[above] {$y$};
+    %% f(x)
+    %\draw[samples=700, color=black, domain=-0.8965:1.81966] plot[id=ganzr-] function{3*x**5-5*x**4};
+    \draw[color=black] plot file {files/gnuplot-tables/Differenzialrechnung.ganzr-wendep-bsp.table};
+    \end{tikzpicture}\stepcounter{mathplotcount}
+    \item Erste bis dritte Ableitung\\
+    $f'(x)=15x^4-20x^3$\\
+    $f''(x)=60x^3-60x^2$\\
+    $f'''(x)=180x^2-120x$
+    \item Notwendige Bedingung\\
+    $60x^3-60x^2=0$\\
+    $x^2(60x-60)=0$\\
+    $x_{w_1}=0$\\
+    $0=60x-60$\\
+    $x_{w_2}=1$
+    \item Hinreichende Bedingung
+    $f'''(0)=0$\\$\rightarrow $ et. Grobskizze $\rightarrow$ H\\
+    $f'''(1)=60\neq 0\rightarrow$ W$(1|y_w)$
+    \item Berechnung von $y_w$\\
+    $y_w=f(1)=3\cdot 1^5-5\cdot 1^4=-2$\\$\rightarrow$ W$(1|-2)$
+\end{enumerate}
+\end{multicols}
+
+\subsection{Kurvendiskussionen einer Ganzrationalen Funktion}
+\subsubsection{Musteraufgabe}
+$f(x)=x^4+2x^3$
+
+%\begin{multicols}{2}
+\begin{enumerate}
+    \item Erste bis dritte Ableitung\\
+    $f'(x)=4x^3+6x^2$\\
+    $f''(x)=12x^2+12x$\\
+    $f'''(x)=24x+12$
+    \item Symmetrie\\
+    Die Funktion ist weder Achsensymmetirisch zur y-Achse, noch Punktsymmetrisch zum Koordinatenursprung
+    (Da ungerade und gerade Hochzahlen).
+    \item Grobskizze\\
+    \begin{tikzpicture}[scale=1]
+    \FPset\fxmax{2}
+    \FPset\fxmin{-3}
+    \FPset\fymax{5}
+    \FPset\fymin{-2}
+    %% Berechnung
+    \FPadd\xmax\fxmax\gitter
+    \FPadd\ymax\fymax\gitter
+    \FPsub\xmin\fxmin\gitter
+    \FPsub\ymin\fymin\gitter
+    %% Gitter
+    %\draw[very thin,color=gray] (\FPprint\xmin,\FPprint\ymin) grid (\FPprint\xmax,\FPprint\ymax);
+    %% Achsen
+    \draw[->] (\xmin,0) -- (\xmax,0) node[right] {$x$};
+    \draw[->] (0,\ymin) -- (0,\ymax) node[above] {$y$};
+    %\draw[samples=700, color=black, domain=-2.373:1.165] plot[id=Kurvendiskussionen-Musterauf] function{x**4+2*x**3};
+    \draw[color=black] plot file {files/gnuplot-tables/Differenzialrechnung.Kurvendiskussionen-Musterauf.table};
+    \end{tikzpicture}\stepcounter{mathplotcount}
+    \item Berechnung der Schnittpunkte mit der x-Achse (N)\\
+    $x^4+2x^3=0$\\
+    $x^3(x+2)=0$\\
+    $x_1=0\quad \rightarrow$ N$_1(0|0)$\\
+    $x+2=0$
+    $x_2=-2\quad \rightarrow$ N$_2(-2|0)$
+    \item Extrempunkte (T; H)\\
+    \begin{enumerate}
+        \item Notwendige Bedingung\\
+        $4x^3+6x^2=0$\\
+        $x^2(4x+6)=0$\\
+        $x_1=0$\\
+        $4x+6=0$\\
+        $4x=-6$\\
+        $x_3=-\frac{3}{2}$
+        \item Hinreichende Bedingung\\
+        $f''(0)=0\quad \rightarrow$ Keine Aussage (siehe Wendepunktberechnung)\\
+        $f''(-\frac{3}{2})>0\quad\rightarrow$ T\\
+        \item $y_E$\\
+        $f(-\frac{3}{2})=-\frac{27}{16}\quad\rightarrow$ T$(-\frac{3}{2}|-\frac{27}{16})\approx$ T$(-1{,}5|-1{,}69)$
+    \end{enumerate}
+    \newpage        %% Wäre sonst auf der Seite davor als Schusterjunge
+    \item Wendepunktberechnung
+    \begin{enumerate}
+        \item Notwendige Bedingung\\
+        $0=12x^2+12x$\\
+        $0=x(12x+12)$\\
+        $x_2=0$\\
+        $12x+12=0$\\
+        $x_4=-1$\\
+        \item Hinreichende Bedingung\\
+        $f'''(0)\neq 0\quad\rightarrow$ W$_1$\\
+        $f'''(-1)\neq 0\quad\rightarrow$ W$_2$
+        \item $y_W$\\
+        $f(0)=0\quad\rightarrow$ W$_1(0|0)$\\
+        $f(-1)=-1\quad\rightarrow$ W$_2(-1|-1)$\\
+    \end{enumerate}
+    \item Funktionsbild\\
+    \begin{mathplot}{2}{-3}{5}{-2}{1}{$x$}{$y$}
+      %\draw[samples=700, color=black, domain=-2.373:1.165] plot[id=Kurvendiskussionen-Musterauf] function{x**4+2*x**3};
+      \draw[color=black] plot file {files/gnuplot-tables/Differenzialrechnung.Kurvendiskussionen-Musterauf.table};
+    \end{mathplot}
+    Wertetabelle wenn nötig
+\end{enumerate}
+%\end{multicols}

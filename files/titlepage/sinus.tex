@@ -1,0 +1,63 @@
+%% <Schule/Epochenheft.tex> Vorlageversion 1.1.1 <Robin Schneider>
+%%%Präambel
+%\RequirePackage{snapshot}		%% \jobname.dep
+%\listfiles	%% listfiles in die Logdatei
+\RequirePackage{RequirePackageRS}
+\documentclass[12pt,a4paper,ngerman,numbers=noenddot,toc=listof]{scrartcl}	%% ,draft,pointednumbers,
+\usepackage{
+%	physicsRS,
+	scrartclRS,
+	defaultRS,
+%	literatureRS,
+%	debugRS,
+	timeRS,
+	graphicRS,
+	mathematicsRS,
+%	gamesRS,
+	layoutRS,
+%	footingRS,
+	extensionsRS,
+	docExtensionsRS,
+	schoolRS,
+%	chemistryRS,
+}
+%% Spetzifische angaben
+\input{../metainfos}
+%%%Body
+\begin{document}
+\thispagestyle{empty}
+\begin{titlepage}
+    \begin{center}
+    \vspace*{5ex}
+    \Huge \begin{tikzpicture}\spiegelschrift{\TITEL}{-0.1}\end{tikzpicture} \\
+    \vspace{2cm}
+    \LARGE\textsc{\SUBJECT}\\
+    \vspace{1cm}
+    \normalsize
+    Gedruckt am: \printDate{\ABGABEJahr}{\ABGABEMonat}{\ABGABETag} \\
+    \vspace{0.3cm}
+    \begin{tikzpicture}[scale=1]
+    \FPset\fxmax{8}
+    \FPset\fxmin{-8}
+    \FPset\fymax{3}
+    \FPset\fymin{-2}
+    %% Berechnung
+    \FPadd\xmax\fxmax\gitter
+    \FPadd\ymax\fymax\gitter
+    \FPsub\xmin\fxmin\gitter
+    \FPsub\ymin\fymin\gitter
+    %% Achsen
+    \draw[->] (\xmin,0) -- (\xmax,0) node[right] {$x$};
+    \draw[->] (0,\ymin) -- (0,\ymax) node[above] {$y$};
+      \draw[samples=1000, color=black, domain=\fxmin:\fxmax] plot[id=titlepage]
+      function{sin(x)*2};
+%       \draw plot file {\jobname.titlepage.table};
+      \draw (8,2.2) node[left] {\textcolor{gray!50}{$f(x) = \sin x$}};
+    \end{tikzpicture}\stepcounter{mathplotcount}
+    \Large
+    \printClass \\
+    \vspace{6cm}
+    \AUTHOR \\
+    \end{center}
+\end{titlepage}
+\end{document}
