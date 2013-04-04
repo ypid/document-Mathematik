@@ -1,7 +1,7 @@
-%% <Schule/Epochenheft.tex> Vorlageversion 1.1.1 <Robin Schneider>
-%%%Präambel
+%% <school/Epochenheft.tex> template 1.1.1 by Robin `ypid` Schneider <ypid23@aol.de>
+%%% preamble
 %\RequirePackage{snapshot}		%% \jobname.dep
-%\listfiles	%% listfiles in die Logdatei
+%\listfiles %% listfiles to logfile
 \RequirePackage{RequirePackageRS}
 \documentclass[12pt,a4paper,ngerman,numbers=noenddot,toc=listof]{scrartcl}	%% ,draft,pointednumbers,
 \usepackage[nohyperlinks,printonlyused]{acronym}
@@ -22,7 +22,7 @@
 	schoolRS,
 %	chemistryRS,
 }
-%% Spetzifische angaben
+%% specific indications
 \input{files/metainfos}
 
 \usepackage{
@@ -39,8 +39,7 @@
 %  \usepackage[draft]{showkeys}
   }{\usepackage{fixme}}
 \fxusetheme{colorsig}\renewcommand{\germanlistfixmename}{Verzeichnis der Anmerkungen}
-\renewcommand{\ABGABEDATUMstatname}{Druckdatum}
-%%%Body
+%%% body
 \begin{document}
 \pdfbookmark[1]{Titelseite}{titelseite}\pagenumbering{Roman}\thispagestyle{empty}
 \includepdf[pages={1}]{files/titlepage/sinus}
@@ -73,22 +72,16 @@ Status:~\progressbar{.98} (eigenes Ermessen)\\
   \begin{landscape}
 	\pagestyle{empty}
 	\begin{sourcefiletable}{1}
-		\sourcefile{Hauptdatei}{\jobname.tex}
-		\sourcefile{Metainformationen}{files/metainfos.tex}
-		\sourcefile{Titelseite (Sinus.tex)}{files/titlepage/sinus.tex}
+		\Isourcefile{Hauptdatei}{\jobname.tex}
+		\Isourcefile{Metainformationen}{files/metainfos.tex}
+		\Isourcefile{Titelseite (Sinus.tex)}{files/titlepage/sinus.tex}
 		\sourcefile{Titelseite (Sinus.pdf)}{files/titlepage/sinus.pdf}
-		\sourcefile{Kapitel: Differenzialrechnung}{files/chapters/Differenzialrechnung.tex}
-		\sourcefile{Kapitel: Ganzrationale Funktionen}{files/chapters/GanzrationaleFunktionen.tex}
+		\Isourcefile{Kapitel: Differenzialrechnung}{files/chapters/Differenzialrechnung.tex}
+		\Isourcefile{Kapitel: Ganzrationale Funktionen}{files/chapters/GanzrationaleFunktionen.tex}
 	\end{sourcefiletable}
-	\pdfbookmark[2]{Versionshinweise}{versionshinweise}
-	\subsection*{Versionshinweise}
-	\input{files/git/versions-log}
-	\printgitstatlandscape{1}
+	\pagestyle{empty}
+	\printVersionNotes
   \end{landscape}
-	\printgitstat{1}
-	\subsubsection*{Dateien?}
-	\pdfbookmark[3]{Dateien?}{files_by_date}
-	\includegraphics[width=14cm]{files/git/stats/files_by_date-crop}
 	\listoffixmes
 %}{}
 \end{document}
